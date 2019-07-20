@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import Login from "../auth/login";
-import loginImg from "../../../static/assets/images/auth/login.jpg";
+import React, { Component } from 'react';
+import Login from '../auth/login';
+import loginImg from '../../../static/assets/images/auth/login.jpg';
 
 export default class Auth extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ export default class Auth extends Component {
 
   handleSuccessfulAuth() {
     this.props.handleSuccessfulLogin();
-    this.props.history.push("/");
+    this.props.history.push('/');
   }
 
   handleUnsuccessfulAuth() {
