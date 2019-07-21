@@ -2,6 +2,7 @@
   "extends": ["airbnb", "plugin:prettier/recommended", "react"],
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "indent": "off",
     "no-unused-vars": "warn",
     "no-console": "off",
     "react/destructuring-assignment": "off",
