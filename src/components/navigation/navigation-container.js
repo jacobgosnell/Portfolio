@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { withRouter } from "react-router";
 import { NavLink } from "react-router-dom";
 
-const NavigationContainer = props =>  {
+const NavigationContainer = props => {
   const dynamicLink = (route, linkText) => {
   return (
     <div className="nav-link-wrapper">
@@ -12,8 +12,8 @@ const NavigationContainer = props =>  {
         {linkText}
       </NavLink>
     </div>
-  )
-}
+  );
+};
 
 const handleSignOut = () => {
 axios
@@ -31,42 +31,42 @@ axios
 };
 
 return (
-    <div className="nav-wrapper">
-      <div className="left-side">
+  <div className="nav-wrapper">
+    <div className="left-side">
 
-        <div className="nav-link-wrapper">
-          <NavLink exact to="/" activeClassName="nav-link-active">Home</NavLink>
-        </div>
-
-        <div className="nav-link-wrapper">
-          <NavLink to="/about-me" activeClassName="nav-link-active">About</NavLink>                    
-        </div>
-      
-        <div className="nav-link-wrapper">
-          <NavLink to="/contact" activeClassName="nav-link-active">Contact</NavLink>
-        </div>
-
-        <div className="nav-link-wrapper">
-          <NavLink to="/blog" activeClassName="nav-link-active">
-            Blog
-          </NavLink>
-        </div>
-          
-          {props.loggedInStatus === "LOGGED_IN" ? dynamicLink("/portfolio-manager", "Portfolio Manager") : null }
+      <div className="nav-link-wrapper">
+        <NavLink exact to="/" activeClassName="nav-link-active">Home</NavLink>
       </div>
 
-      <div className="right-side">
+      <div className="nav-link-wrapper">
+        <NavLink to="/about-me" activeClassName="nav-link-active">About</NavLink>
+      </div>
+
+      <div className="nav-link-wrapper">
+        <NavLink to="/contact" activeClassName="nav-link-active">Contact</NavLink>
+      </div>
+
+      <div className="nav-link-wrapper">
+        <NavLink to="/blog" activeClassName="nav-link-active">
+            Blog
+        </NavLink>
+      </div>
+
+      {props.loggedInStatus === "LOGGED_IN" ? dynamicLink("/portfolio-manager", "Portfolio Manager") : null }
+    </div>
+
+    <div className="right-side">
         JAKE GOSNELL
 
-        {props.loggedInStatus === 'LOGGED_IN' ? (
-          <a onClick={handleSignOut}>
-            <FontAwesomeIcon icon="sign-out-alt" />
-          </a>
+      {props.loggedInStatus === 'LOGGED_IN' ? (
+        <a onClick={handleSignOut}>
+          <FontAwesomeIcon icon="sign-out-alt" />
+        </a>
         ) : null}
-      </div>
-    
     </div>
+
+  </div>
   );
-}
+};
 
 export default withRouter(NavigationContainer);

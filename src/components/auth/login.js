@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 
 export default class Login extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
 
     this.state = {
@@ -15,14 +15,14 @@ export default class Login extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
+  handleChange (event) {
     this.setState({
       [event.target.name]: event.target.value,
       errorText: ""
     });
   }
 
-  handleSubmit(event) {
+  handleSubmit (event) {
     axios
       .post(
         "https://api.devcamp.space/sessions",
@@ -54,7 +54,7 @@ export default class Login extends Component {
     event.preventDefault();
   }
 
-  render() {
+  render () {
     return (
       <div>
         <h1>LOGIN TO ACCESS YOUR DASHBOARD</h1>

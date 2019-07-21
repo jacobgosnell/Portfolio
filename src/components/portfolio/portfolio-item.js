@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 export default class PortfolioItem extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
 
     this.state = {
@@ -10,15 +10,15 @@ export default class PortfolioItem extends Component {
     };
   }
 
-  handleMouseEnter() {
-    this.setState({portfolioItemClass: 'image-blur' });
+  handleMouseEnter () {
+    this.setState({ portfolioItemClass: 'image-blur' });
   }
 
   handleMouseLeave () {
-    this.setState({portfolioItemClass: ""})
+    this.setState({ portfolioItemClass: "" });
   }
 
-  render() {
+  render () {
     const { id, description, thumb_image_url, logo_url } = this.props.item;
     return (
       <div className="portfolio-item-wrapper"
@@ -42,6 +42,6 @@ export default class PortfolioItem extends Component {
           </div>
         </div>
       </div>
-    )
-  }   
+    );
+  }
 }

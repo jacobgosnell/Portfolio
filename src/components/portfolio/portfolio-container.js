@@ -5,8 +5,8 @@ import PortfolioItem from "./portfolio-item";
 
 export default class PortfolioContainer extends Component {
   constructor() {
-    super(); 
-    
+    super();
+
     this.state = {
       pageTitle: "Welcome to my portfolio",
       isLoading: false,
@@ -22,7 +22,7 @@ export default class PortfolioContainer extends Component {
     this.setState({
       data: this.state.data.filter(item => {
         return item.category === filter;
-      }),
+      })
     });
   }
 
@@ -43,10 +43,10 @@ export default class PortfolioContainer extends Component {
   portfolioItems() {
     return this.state.data.map(item => {
       // console.log('item data', item);
-      return ( 
-        <PortfolioItem 
-          key={item.id} 
-          item={item} 
+      return (
+        <PortfolioItem
+          key={item.id}
+          item={item}
         />
       );
     });
@@ -58,7 +58,7 @@ export default class PortfolioContainer extends Component {
 
   render() {
     if (this.state.isLoading) {
-      return <div>Loading...</div>
+      return <div>Loading...</div>;
     }
 
     return (
