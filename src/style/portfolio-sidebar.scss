@@ -11,7 +11,7 @@
     }
   }
 
-  .portfolio-text {
+  .text-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -21,15 +21,21 @@
       margin-right: 20px;
     }
 
-    .delete-icon {
-      font-size: 1.5rem;
-      transition: 0.1s ease-in-out;
-      margin-right: 10px;
-      color: $offwhite;
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 15px;
 
-      &:hover {
-        cursor: pointer;
-        color: $warning;
+      .action-icon {
+        font-size: 1.5rem;
+        transition: 0.1s ease-in-out;
+        margin-right: 10px;
+        color: $offwhite;
+
+        &:hover {
+          cursor: pointer;
+          color: $warning;
+        }
       }
     }
   }

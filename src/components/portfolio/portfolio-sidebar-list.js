@@ -9,7 +9,7 @@ const PortfolioSidebarList = props => {
             <img src={portfolioItem.thumb_image_url} />
           </div>
 
-          <div className="portfolio-text">
+          <div className="text-content">
             <div className="title">{portfolioItem.name}</div>
 
             <div className="actions">
