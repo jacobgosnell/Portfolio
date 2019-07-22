@@ -26,6 +26,18 @@
       grid-template-columns: 1fr 1fr;
       grid-gap: 15px;
 
+      .edit-icon {
+        font-size: 1.5rem;
+        transition: 0.1s ease-in-out;
+        margin-right: 10px;
+        color: $offwhite;
+
+        &:hover {
+          cursor: pointer;
+          color: $dark-teal;
+        }
+      }
+
       .action-icon {
         font-size: 1.5rem;
         transition: 0.1s ease-in-out;

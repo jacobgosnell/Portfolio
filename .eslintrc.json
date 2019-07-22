@@ -14,6 +14,7 @@
     "eol-last": "off",
     "react/no-unused-state": "off",
     "react/sort-comp": "off",
+    "react/no-did-update-set-state": "off",
     "no-undef": "off",
     "camelcase": "off"
   }
