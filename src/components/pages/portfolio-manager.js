@@ -25,6 +25,7 @@ clearPortfolioToEdit () {
     portfolioToEdit: {}
   });
 }
+
 handleEditClick (portfolioItem) {
   this.setState({
     portfolioToEdit: portfolioItem
