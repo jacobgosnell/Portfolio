@@ -45,7 +45,10 @@ export default class PortfolioForm extends Component {
         description,
         category,
         position,
-        url
+        url,
+        thumb_image_url,
+        banner_image_url,
+        logo_url
       } = this.props.portfolioToEdit;
 
       this.props.clearPortfolioToEdit();
@@ -59,7 +62,10 @@ export default class PortfolioForm extends Component {
         url: url || "",
         editMode: true,
         apiUrl: `https://jake.devcamp.space/portfolio/portfolio_items/${id}`,
-        apiAction: "patch"
+        apiAction: "patch",
+        thumb_image: thumb_image_url || "",
+        banner_image: banner_image_url || "",
+        logo: logo_url || ""
       });
     }
   }
@@ -131,7 +137,11 @@ export default class PortfolioForm extends Component {
       withCredentials: true
     })
       .then(response => {
-      this.props.handleSuccessfulFormSubmission(response.data.portfolio_item);
+      if (this.state.editMode) {
+        this.props.handleEditFormSubmission();
+      } else {
+        this.props.handleNewFormSubmission(response.data.portfolio_item);
+      }
 
       this.setState({
         name: "",
@@ -141,7 +151,10 @@ export default class PortfolioForm extends Component {
         url: "",
         thumb_image: "",
         banner_image: "",
-        logo: ""
+        logo: "",
+        editMode: true,
+        apiUrl: `https://jake.devcamp.space/portfolio/portfolio_items/${id}`,
+        apiAction: "post"
       });
 
       [this.thumbRef, this.bannerRef, this.logoRef].forEach(i => {
@@ -207,6 +220,9 @@ export default class PortfolioForm extends Component {
       </div>
 
       <div className="image-uploaders">
+      {this.state.thumb_image && this.state.editMode ? (
+        <h2>{this.state.thumb_image}</h2>
+      ) : (
       <DropzoneComponent
           ref={this.thumbRef}
           config={this.componentConfig()}
@@ -214,7 +230,8 @@ export default class PortfolioForm extends Component {
           eventHandlers={this.handleThumbDrop()}
         >
         <div className="dz-message">Thumbnail</div>
-        </DropzoneComponent>
+      </DropzoneComponent>
+    )}
 
       <DropzoneComponent
         ref={this.bannerRef}
