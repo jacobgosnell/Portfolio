@@ -4,7 +4,7 @@ import axios from "axios";
 import PortfolioItem from "./portfolio-item";
 
 export default class PortfolioContainer extends Component {
-  constructor() {
+  constructor () {
     super();
 
     this.state = {
@@ -18,7 +18,7 @@ export default class PortfolioContainer extends Component {
 
   // list out any custom functions you'd want to use
 
-  handleFilter(filter) {
+  handleFilter (filter) {
     this.setState({
       data: this.state.data.filter(item => {
         return item.category === filter;
@@ -26,7 +26,7 @@ export default class PortfolioContainer extends Component {
     });
   }
 
-  getPortfolioItems() {
+  getPortfolioItems () {
     axios
     .get('https://jake.devcamp.space/portfolio/portfolio_items')
     .then(response => {
@@ -40,7 +40,7 @@ export default class PortfolioContainer extends Component {
     });
   }
 
-  portfolioItems() {
+  portfolioItems () {
     return this.state.data.map(item => {
       // console.log('item data', item);
       return (
@@ -52,11 +52,11 @@ export default class PortfolioContainer extends Component {
     });
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.getPortfolioItems();
   }
 
-  render() {
+  render () {
     if (this.state.isLoading) {
       return <div>Loading...</div>;
     }
