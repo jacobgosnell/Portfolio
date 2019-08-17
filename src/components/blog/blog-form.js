@@ -37,7 +37,7 @@ export default class BlogForm extends Component {
       })
     }
   }
-  
+
   componentConfig() {
     return {
       iconFiletypes: [".jpg", ".png"],
@@ -126,7 +126,11 @@ export default class BlogForm extends Component {
         </div>
 
         <div className="one-column">
-          <RichTextEditor handleRichTextEditorChange={this.handleRichTextEditorChange} />
+          <RichTextEditor 
+            editMode={this.props.editMode} 
+            handleRichTextEditorChange={this.handleRichTextEditorChange}
+            contentToEdit={this.props.editMode && this.props.blog.content ? this.props.blog.content : null}
+          />
         </div>
 
         <div className="image-uploaders">
