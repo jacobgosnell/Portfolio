@@ -31,13 +31,15 @@ export default class PortfolioContainer extends Component {
     .get('https://jake.devcamp.space/portfolio/portfolio_items')
     .then(response => {
       if (filter) {
-
-        } else {
-        console.log('response data', response);
         this.setState({
-          data: response.data.portfolio_itemsfilter(item => {
+          data: response.data.portfolio_items.filter(item => {
             return item.category === filter;
           })
+        });
+      } else {
+      console.log('response data', response);
+        this.setState({
+          data: response.data.portfolio_items
         });
       }
     })
@@ -70,16 +72,32 @@ export default class PortfolioContainer extends Component {
     return (
       <div className="homepage-wrapper">
         <div className="filter-links">
-          <button className="btn" onClick={() => this.handleFilter('eCommerce')}>eCommerce</button>
-          <button className="btn" onClick={() => this.handleFilter('Scheduling')}>Scheduling</button>
-          <button className="btn" onClick={() => this.handleFilter('Enterprise')}>Enterprise</button>
-          <button className="btn" onClick={() => this.handleFilter('CLEAR_FILTERS')}>All</button>
+          <button
+            className="btn"
+            onClick={() => this.handleFilter("eCommerce")}
+          >
+            eCommerce
+          </button>
+          <button
+            className="btn"
+            onClick={() => this.handleFilter("Scheduling")}
+          >
+            Scheduling
+          </button>
+          <button
+            className="btn"
+            onClick={() => this.handleFilter("Enterprise")}
+          >
+            Enterprise
+          </button>
+          <button
+            className="btn"
+            onClick={() => this.handleFilter("CLEAR_FILTERS")}
+          >
+            All
+          </button>
         </div>
-
-        <div className="portfolio-items-wrapper">
-          
-          {this.portfolioItems()}
-        </div>
+        <div className="portfolio-items-wrapper">{this.portfolioItems()}</div>
       </div>
     );
   }
