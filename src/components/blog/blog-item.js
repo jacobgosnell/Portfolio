@@ -15,14 +15,19 @@ const BlogItem = props => {
   return (
     <div>
       <Link to={`/b/${id}`}>
-        <h1>{title}</h1>
+          <h1>{title}</h1>
       </Link>
       <div>
-        <Truncate lines={5} ellipsis={
-          <span>
-            ... <Link to={`/b/${id}`}>Read More</Link>
-          </span>
-        }>{scriptags(content)}</Truncate>
+        <Truncate
+          lines={5}
+          ellipsis={
+              <span>
+                  ...<Link to={`/b/${id}`}>Read more</Link>
+              </span>
+          }
+        >
+          {striptags(content)}
+        </Truncate>
       </div>
     </div>
   );

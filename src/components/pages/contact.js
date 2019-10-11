@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import contactPagePicture from "../../../static/assets/images/auth/login.jpg"
+import contactPagePicture from "../../../static/assets/images/auth/login.jpg"
 
 export default function () {
   return (
@@ -8,7 +8,7 @@ export default function () {
       <div 
         className="left-column"
         style={{
-          background: "url(" + profilePicture + ") no-repeat",
+          background: "url(" + contactPagePicture + ") no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center"
         }}
@@ -20,7 +20,7 @@ export default function () {
               <FontAwesomeIcon icon="phone" />
             </div>
             <div className="text">
-              555-555-5555
+              865-806-6145
             </div>
           </div>
 
