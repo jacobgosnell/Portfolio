@@ -1,88 +1,103 @@
-import React, { Component } from "react";
-import axios from "axios";
-import ReactHtmlParser from "react-html-parser";
+import React, { Component } from 'react';
+import axios from 'axios';
+import ReactHtmlParser from 'react-html-parser';
 
-import BlogForm from "../blog/blog-form";
-import BlogFeaturedImage from "../blog/blog-featured-image";
+import BlogForm from '../blog/blog-form';
+import BlogFeaturedImage from '../blog/blog-featured-image';
 
 export default class BlogDetail extends Component {
-  constructor (props) {
-    super(props);
-    this.state = {
-      currentId: this.props.match.params.slug,
-      blogItem: {},
-      editMode: false
-    };
+    constructor(props) {
+        super(props);
 
-    this.handleEditClick = this.handleEditClick.bind(this);
-    this.handleFeaturedImageDelete = this.handleFeaturedImageDelete.bind(this);
-    this.handleUpdateFormSubmission = this.handleUpdateFormSubmission.bind(this);
-  }
+        this.state = {
+            currentId: this.props.match.params.slug,
+            blogItem: {},
+            editMode: false
+        };
 
-  handleUpdateFormSubmission(blog) {
-    this.setState({
-      blogItem: blog,
-      editMode: false
-    })
-  }
-
-  handleFeaturedImageDeleteId() {
-    this.setState({
-      blogItem: {
-        featured_image_url: ""
-      }
-    });
-  }
-
-  handleEditClick() {
-    console.log("handle edit clicked");
-    if (this.props.loggedInStatus === "LOGGED_IN") {
-      this.setState({ editMode: true });
+        this.handleEditClick = this.handleEditClick.bind(this)
+        this.handleFeaturedImageDelete = this.handleFeaturedImageDelete.bind(this);
+        this.handleUpdateFormSubmission = this.handleUpdateFormSubmission.bind(this);
     }
-  }
 
-  getBlogItem () {
-    axios.get(`https://jake.devcamp.space/portfolio/portfolio_blogs/${this.state.currentId}`
-    ).then(response => {
-      console.log("response", response);
-      this.setState({
-        blogItem: response.data.portfolio_blog
-      });
-    }).catch(error => {
-      console.log("getBlogItemError", error);
-    });
-  }
+    handleUpdateFormSubmission(blog) {
+        this.setState({
+            blogItem: blog,
+            editMode: false
+        })
+    }
 
-  componentDidMount () {
-    this.getBlogItem();
-  }
+    handleFeaturedImageDelete() {
+        this.setState({
+            blogItem: {
+                featured_image_url: ""
+            }
+        })
+    }
 
-  render () {
-    const {
-      title,
-      content,
-      featured_image_url,
-      blog_status
-    } = this.state.blogItem;
+    handleEditClick() {
+        if (this.props.loggedInStatus === "LOGGED_IN") {
+            this.setState({ editMode: true })
+        }
+    }
 
-    const contentManager = () => {
-      if (this.state.editMode) {
-        return <BlogForm editMode={this.state.editMode} blog={this.state.blogItem} handleFeaturedImageDeleteId={this.handleFeaturedImageDeleteId} handleUpdateFormSubmission={this.handleUpdateFormSubmission} />
-      } else {
+    getBlogItem() {
+        axios.get(
+            `https://jake.devcamp.space/portfolio/portfolio_blogs/${this.state
+                .currentId}`
+        )
+        .then(response => {
+            this.setState({
+                blogItem: response.data.portfolio_blog
+            })
+        })
+        .catch(error => {
+            console.log("getBlogItemError", error);
+        });
+    }
+
+    componentDidMount() {
+        this.getBlogItem();
+    }
+
+    render() {
+        const {
+            title,
+            content,
+            featured_image_url,
+            blog_status
+        } = this.state.blogItem;
+
+        const contentManager = () => {
+            if (this.state.editMode) {
+                return (
+                    <BlogForm
+                        handleFeaturedImageDelete={this.handleFeaturedImageDelete}
+                        handleUpdateFormSubmission={this.handleUpdateFormSubmission}
+                        editMode={this.state.editMode}
+                        blog={this.state.blogItem}
+                    />
+                );
+            } else {
+                return (
+                    <div className="content-container">
+                        <h1 onClick={this.handleEditClick}>{title}</h1>
+
+                        <BlogFeaturedImage img={featured_image_url} />
+
+                        <div className="content">
+                            {ReactHtmlParser(content)}
+                        </div>
+                    </div>
+                );
+
+            }
+        };
+
         return (
-          <div className="content-container">
-          <h1 onClick={this.handleEditClick}>{title}</h1>
-
-          <BlogFeaturedImage img={featured_image_url} />
-
-          <div className="content">{ReactHtmlParser(content)}</div>
-        </div>
-        );
-      }
+            <div className="blog-container">
+                {contentManager()}
+            </div>
+        )
     }
-
-    return (
-      <div className="blog-container">{contentManager()}</div>
-    );
-  }
 }

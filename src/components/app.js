@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
+
 import NavigationContainer from "./navigation/navigation-container";
 import Home from "./pages/home";
 import About from "./pages/about";
@@ -14,10 +15,10 @@ import NoMatch from "./pages/no-match";
 import Icons from "../helpers/icons";
 
 export default class App extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
 
-    Icons(); 
+    Icons();
 
     this.state = {
       loggedInStatus: "NOT_LOGGED_IN"
@@ -28,71 +29,73 @@ export default class App extends Component {
     this.handleSuccessfulLogout = this.handleSuccessfulLogout.bind(this);
   }
 
-  handleSuccessfulLogin () {
+  handleSuccessfulLogin() {
     this.setState({
       loggedInStatus: "LOGGED_IN"
     });
   }
 
-  handleUnsuccessfulLogin () {
+  handleUnsuccessfulLogin() {
     this.setState({
       loggedInStatus: "NOT_LOGGED_IN"
     });
   }
 
-  handleSuccessfulLogout () {
+  handleSuccessfulLogout() {
     this.setState({
       loggedInStatus: "NOT_LOGGED_IN"
     });
   }
 
-  checkLoginStatus () {
-    return axios.get("https://api.devcamp.space/logged_in", {
-      withCredentials: true
-    }).then(response => {
-      const loggedIn = response.data.logged_in;
-      const loggedInStatus = this.state.loggedInStatus;
+  checkLoginStatus() {
+    return axios
+      .get("https://api.devcamp.space/logged_in", {
+        withCredentials: true
+      })
+      .then(response => {
+        const loggedIn = response.data.logged_in;
+        const loggedInStatus = this.state.loggedInStatus;
 
-      // If loggedIn and status LOGGED_IN => return data
-      // If loggedIn and status NOT_LOGGED_IN => update state
-      // If not loggedIn and status LOGGED_IN => update state
-
-      if (loggedIn && loggedInStatus === "LOGGED_IN") {
-        return loggedIn;
-      } else if (loggedIn && loggedInStatus === "NOT_LOGGED_IN") {
-        this.setState({
-          loggedInStatus: "LOGGED_IN"
-        });
-      } else if (!loggedIn && loggedInStatus === "LOGGED_IN") {
-        this.setState({
-          loggedInStatus: "NOT_LOGGED_IN"
-        });
-      }
-    })
-    .catch(error => {
-      console.log("Error", error);
-    });
+        if (loggedIn && loggedInStatus === "LOGGED_IN") {
+          return loggedIn;
+        } else if (loggedIn && loggedInStatus === "NOT_LOGGED_IN") {
+          this.setState({
+            loggedInStatus: "LOGGED_IN"
+          });
+        } else if (!loggedIn && loggedInStatus === "LOGGED_IN") {
+          this.setState({
+            loggedInStatus: "NOT_LOGGED_IN"
+          });
+        }
+      })
+      .catch(error => {
+        console.log("Error", error);
+      });
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.checkLoginStatus();
   }
 
-  authorizedRoutes () {
+  authorizedPages() {
     return [
-      <Route key="portfolio-manager" path="/portfolio-manager" component={PortfolioManager} />
+      <Route
+        key='portfolio-manager'
+        path="/portfolio-manager"
+        component={PortfolioManager}
+      />
     ];
   }
 
-  render () {
+  render() {
     return (
       <div className="container">
         <Router>
           <div>
             <NavigationContainer
-            loggedInStatus={this.state.loggedInStatus}
-            handleSuccessfulLogout={this.handleSuccessfulLogout}
-          />
+              loggedInStatus={this.state.loggedInStatus}
+              handleSuccessfulLogout={this.handleSuccessfulLogout}
+            />
 
             <Switch>
               <Route exact path="/" component={Home} />
@@ -110,24 +113,31 @@ export default class App extends Component {
 
               <Route path="/about-me" component={About} />
               <Route path="/contact" component={Contact} />
+              
               <Route path="/blog"
                 render={props => (
                   <Blog {...props} loggedInStatus={this.state.loggedInStatus} />
                 )}
               />
-              <Route 
+
+              <Route
                 path="/b/:slug"
                 render={props => (
-                  <Blog {...props} loggedInStatus={this.state.loggedInStatus} />
+                  <BlogDetail
+                    {...props}
+                    loggedInStatus={this.state.loggedInStatus}
+                  />
                 )}
               />
-              {this.state.loggedInStatus === "LOGGED_IN" ? this.authorizedRoutes() : null }
+
+              {this.state.loggedInStatus === "LOGGED_IN" ? (
+                this.authorizedPages()
+              ) : null}
               <Route
                 exact
                 path="/portfolio/:slug"
                 component={PortfolioDetail}
               />
-
               <Route component={NoMatch} />
             </Switch>
           </div>
