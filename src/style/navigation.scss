@@ -1,7 +1,8 @@
 .nav-wrapper {
   display: flex;
   justify-content: space-between;
-  padding: 30px;
+  padding: 35px;
+  margin-left: 60px;
 
   .right-side {
     a {
@@ -32,6 +33,7 @@
       color: $grey;
       text-decoration: none;
       padding: 10px 30px;
+      margin-right: 60px;
       &:hover {
         color: black;
         border-bottom: 1px solid black;
