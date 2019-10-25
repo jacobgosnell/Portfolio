@@ -19,7 +19,7 @@ export default function () {
           Hey there!
         </div>
         <div className='about-text'>
-          I'm Jake, a self-taught software developer.  I wrote my first line of code in December of 2018, and have since fallen into the rabit hole that is the world of open source code.  As I am inspired and intrigued by the vast endlessness of code, I continue, learning new things every day - working on projects that fascinate me.  Please feel free to connect with me on Github and see what I'm up too!   
+          I'm Jake, a self-taught software developer.  I wrote my first line of code in December of 2018, and have since fallen into the rabit hole that is the world of open source code.  As I am inspired and intrigued by the endless possbilities of code, I strive to continue learning new things every day.  Feel free to connect with me on Github and see what I'm up too!   
         </div>
             
         <div className="about-links-wrapper">

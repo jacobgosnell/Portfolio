@@ -4,13 +4,15 @@
   grid-gap: 21px;
 
   .about-header {
-    font-size: 2em;
+    font-size: 4.5rem;
     font-weight: 900;
     color: $teal;
   }
 
   .about-text {
-    font-weight: 900;
+    font-size: 1.41rem;
+
+    font-weight: 600;
 
     ul {
       margin-top: 0px;
@@ -39,7 +41,7 @@
     }
 
     .text {
-      font-size: 1.5em;
+      font-size: 2.5em;
       margin-left: 21px;
       text-decoration: none;
     }
