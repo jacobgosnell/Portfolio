@@ -16,28 +16,12 @@ export default function () {
       <div className="right-column">
       <div className="about-content-wrapper">
         <div className="about-header">
-            SUMMARY
+          Hey there!
         </div>
         <div className='about-text'>
-          Hey there, I'm Jake! I am a self-taught software developer.  I wrote my first line of code in December of 2018, and have since fallen into the rabit hole that is the world of open source code.  As I am inspired and intrigued by the vast endlessness of code, I continue, learning new things every day - working on projects that fascinate me.  Please feel free to connect with me on Github and see what I'm up too!   
+          I'm Jake, a self-taught software developer.  I wrote my first line of code in December of 2018, and have since fallen into the rabit hole that is the world of open source code.  As I am inspired and intrigued by the vast endlessness of code, I continue, learning new things every day - working on projects that fascinate me.  Please feel free to connect with me on Github and see what I'm up too!   
         </div>
-            <div className='about-header'>
-                SKILLS
-            </div>
-            <div className='about-text'>
-                <ul>
-                    <li>
-                        HTML5, CSS3, Bootstrap, Emotion, SCSS
-                    </li>
-                    <li>JavaScript, Jquery, React, React-Bootstrap, Redux, Gatsby</li>
-                    <li>
-                      Npm, Yarn, Webpack, Git, Github
-                    </li>
-                    <li>Express, MySQL, VSCode</li>
-                    <li>Sublime, Figma</li>
-                    <li>Command line proficiency & UI/UX fundamentals</li>
-                </ul>                    
-            </div>
+            
         <div className="about-links-wrapper">
             <div className="about-link">
                 <div className="icon">

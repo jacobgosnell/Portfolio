@@ -9,11 +9,11 @@
       margin-left: 15px;
       margin-right: 20px;
       cursor: pointer;
-      color: $teal;
+      color: $grey;
       text-decoration: none;
 
       &:hover {
-        color: $dark-teal;
+        color: black;
         transition: 0.15s ease-in-out;
       }
     }
