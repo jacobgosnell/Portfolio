@@ -1,7 +1,7 @@
 .about-content-wrapper {
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 21px;
+  grid-gap: 30px;
 
   .about-header {
     font-size: 4.5rem;
@@ -10,8 +10,8 @@
   }
 
   .about-text {
-    font-size: 1.41rem;
-
+    font-size: 1.21rem;
+    line-height: 2.4rem;
     font-weight: 600;
 
     ul {
