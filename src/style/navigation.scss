@@ -1,14 +1,16 @@
 .nav-wrapper {
   display: flex;
   justify-content: space-between;
-  padding: 35px;
+  padding: 30px;
   margin-left: 60px;
 
   .right-side {
     a {
       margin-left: 15px;
+      margin-right: 20px;
       cursor: pointer;
       color: $teal;
+      text-decoration: none;
 
       &:hover {
         color: $dark-teal;
