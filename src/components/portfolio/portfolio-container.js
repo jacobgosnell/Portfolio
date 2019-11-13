@@ -65,19 +65,19 @@ export default class PortfolioContainer extends Component {
         <div className="filter-links">
             <button
               className='btn'
-              onClick={() => this.handleFilter("REACT")}
+              onClick={() => this.handleFilter("Education")}
             >
               Client Projects
             </button>
             <button
               className='btn'
-              onClick={() => this.handleFilter("PYTHON")}
+              onClick={() => this.handleFilter("Technology")}
             >
               Bootcamp Projects
             </button>
             <button
               className='btn'
-              onClick={() => this.handleFilter("HTML-CSS-JS")}
+              onClick={() => this.handleFilter("Education")}
             >
               Personal Projects
             </button>
