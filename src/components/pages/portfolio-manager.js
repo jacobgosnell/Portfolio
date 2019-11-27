@@ -13,11 +13,13 @@ export default class PortfolioManager extends Component {
       portfolioToEdit: {}
     };
 
+    this.handleEditFormSubmission = this.handleEditFormSubmission.bind(this);
     this.handleNewFormSubmission = this.handleNewFormSubmission.bind(this);
     this.handleFormSubmissionError = this.handleFormSubmissionError.bind(this);
     this.handleDeleteClick = this.handleDeleteClick.bind(this);
     this.handleEditClick = this.handleEditClick.bind(this);
     this.clearPortfolioToEdit = this.clearPortfolioToEdit.bind(this);
+    this.getPortfolioItems = this.getPortfolioItems.bind(this);
 }
 
 clearPortfolioToEdit () {
@@ -51,6 +53,18 @@ handleDeleteClick (portfolioItem) {
     });
 }
 
+getPortfolioItems () {
+  axios.get("https://jake.devcamp.space/portfolio/portfolio_items?order_by=created_at&direction=desc", {
+    withCredentials: true
+  }).then(response => {
+    this.setState({
+      portfolioItems: [...response.data.portfolio_items]
+    });
+  }).catch(error => {
+    console.log("error in getPortfolioItems", error);
+  });
+}
+
 handleEditFormSubmission () {
   this.getPortfolioItems();
 }
@@ -64,18 +78,6 @@ handleNewFormSubmission (portfolioItem) {
 
 handleFormSubmissionError (error) {
     console.log("handleFormSubmissionError error", error);
-}
-
-getPortfolioItems () {
-    axios.get("https://jake.devcamp.space/portfolio/portfolio_items?order_by=created_at&direction=desc", {
-        withCredentials: true
-    }).then(response => {
-        this.setState({
-          portfolioItems: [...response.data.portfolio_items]
-        });
-    }).catch(error => {
-        console.log("error in getPortfolioItems", error);
-    });
 }
 
 componentDidMount () {
