@@ -170,7 +170,7 @@ export default class PortfolioForm extends Component {
           banner_image: "",
           logo: "",
           editMode: false,
-          apiUrl: "https://jordan.devcamp.space/portfolio/portfolio_items",
+          apiUrl: "https://jake.devcamp.space/portfolio/portfolio_items",
           apiAction: "post"
         });
 
@@ -244,7 +244,7 @@ export default class PortfolioForm extends Component {
 
               <div className="image-removal-link">
                 <a onClick={() => this.deleteImage("thumb_image")}>
-                  Remove File
+                  Remove Thumbnail
                 </a>
               </div>
             </div>
@@ -265,7 +265,7 @@ export default class PortfolioForm extends Component {
 
               <div className="image-removal-link">
                 <a onClick={() => this.deleteImage("banner_image")}>
-                  Remove File
+                  Remove Banner
                 </a>
               </div>
             </div>
@@ -285,8 +285,8 @@ export default class PortfolioForm extends Component {
               <img src={this.state.logo_url} />
 
               <div className="image-removal-link">
-                <a onClick={() => this.deleteImage("logo_image")}>
-                  Remove File
+                <a onClick={() => this.deleteImage("logo")}>
+                  Remove Logo
                 </a>
               </div>
             </div>
