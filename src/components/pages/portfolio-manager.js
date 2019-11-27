@@ -52,7 +52,7 @@ handleDeleteClick (portfolioItem) {
 }
 
 handleEditFormSubmission () {
-  this.getPortfolioItemsFunction();
+  this.getPortfolioItems();
 }
 
 handleNewFormSubmission (portfolioItem) {
