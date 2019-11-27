@@ -33,7 +33,7 @@ export default function () {
             </div>
             <div className="about-link">
                 <div className="icon">
-                    <a href="https://docs.google.com/document/d/1yxy0EixJuqc7MbBtbmHXRXE9vR-gCTxZGj43x07JvRU/edit?usp=drive_web&ouid=110724760784723002468" className="text" target="_blank">
+                    <a href="https://docs.google.com/document/d/18WvnpE8n7Yl2sfRJuueInXH0e5IvYN0t5lTy2jGjRDc/edit?usp=sharing" className="text" target="_blank">
                       Resume
                     </a>
                 </div>

@@ -99,7 +99,6 @@ export default class App extends Component {
 
             <Switch>
               <Route exact path="/" component={Home} />
-
               <Route
                 path="/auth"
                 render={props => (
@@ -110,16 +109,13 @@ export default class App extends Component {
                   />
                 )}
               />
-
               <Route path="/about-me" component={About} />
               <Route path="/contact" component={Contact} />
-              
               <Route path="/blog"
                 render={props => (
                   <Blog {...props} loggedInStatus={this.state.loggedInStatus} />
                 )}
               />
-
               <Route
                 path="/b/:slug"
                 render={props => (
@@ -129,7 +125,6 @@ export default class App extends Component {
                   />
                 )}
               />
-
               {this.state.loggedInStatus === "LOGGED_IN" ? (
                 this.authorizedPages()
               ) : null}

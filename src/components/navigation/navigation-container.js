@@ -52,7 +52,7 @@ return (
     </div>
 
     <div className="right-side">
-        <NavLink to="/auth">Login</NavLink>
+        <NavLink to="/auth">Jake Gosnell</NavLink>
 
       {props.loggedInStatus === 'LOGGED_IN' ? (
         <a onClick={handleSignOut}>
