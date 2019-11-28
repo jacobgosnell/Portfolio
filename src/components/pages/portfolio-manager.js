@@ -70,10 +70,10 @@ handleEditFormSubmission () {
 }
 
 handleNewFormSubmission (portfolioItem) {
-    this.setState({
-      portfolioItems: [portfolioItem].concat(this.state.portfolioItems)
-    });
-    console.log("handleSuccessfulFormSubmission", portfolioItem);
+  this.setState({
+    portfolioItems: [portfolioItem].concat(this.state.portfolioItems)
+  });
+  console.log("handleSuccessfulFormSubmission", portfolioItem);
 }
 
 handleFormSubmissionError (error) {
@@ -91,7 +91,7 @@ componentDidMount
           <div className="portfolio-page-wrapper">
             <div className="left-side">
               <PortfolioForm
-                handleNewFormSubmission={this.handleSuccessfulFormSubmission}
+                handleNewFormSubmission={this.handleNewFormSubmission}
                 handleEditFormSubmission={this.handleEditFormSubmission}
                 handleFormSubmissionError={this.handleFormSubmissionError}
                 clearPortfolioToEdit={this.clearPortfolioToEdit}
