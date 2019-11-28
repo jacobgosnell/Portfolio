@@ -1,5 +1,3 @@
 # Jake Gosnell React Portfolio Application
 
-> Pull Down into your local machine,
-> Install Dependencies, &
-> Run the Server
+> Live Version: https://jake-react-portfolio.herokuapp.com/
