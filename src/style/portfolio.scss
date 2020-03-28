@@ -1,6 +1,10 @@
 .portfolio-items-wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
+
+  @media (max-width: 769px) {
+    grid-template-columns: 1fr 1fr;
+  }
 
   .portfolio-item-wrapper {
     position: relative;
@@ -22,12 +26,15 @@
       align-items: center;
       height: 100%;
       text-align: center;
-      padding-left: 100px;
-      padding-right: 100px;
 
       .subtitle {
+        text-align: center;
         transition: 0.7s ease-in-out;
         color: transparent;
+        padding: 0 100px;
+        @media (max-width: 857px) {
+          padding: 0 30px;
+        }
       }
     }
 
